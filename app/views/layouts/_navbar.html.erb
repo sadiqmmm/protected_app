@@ -11,6 +11,12 @@
       <% if user_signed_in? %>
         <div class="nav-collapse collapse">
           <ul class="nav pull-right">
+            <li>
+              <form class="navbar-form">
+                <input type="text" class="span4" placeholder="Search your files">
+                <button type="submit" class="btn">Submit</button>
+              </form>
+            </li>
             <li class="dropdown">
               <%= link_to "#", class: "dropdown-toggle", "data-toggle" => "dropdown" do %>
                 <%= current_user.email %> <b class="caret"></b>
