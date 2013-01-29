@@ -1,4 +1,7 @@
 ProtectedApp::Application.routes.draw do
+  resources :folders
+
+
   get "static_pages/home"
 
   devise_for :users
