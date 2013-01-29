@@ -1,0 +1,20 @@
+<% if user_signed_in? %>
+
+<% else %>
+  <div class="well home">
+    <h1>Protected App</h1>
+    <h3>Keep all your passwords in a safe place</h3>
+    <div class="row-fluid">
+      <div class="span6">
+        <%= link_to new_user_registration_path, class: "btn btn-large btn-block btn-primary" do %>
+          <i class="icon-white icon-user"></i> Create a new account
+        <% end %>
+      </div>
+      <div class="span6">
+        <%= link_to new_user_session_path, class: "btn btn-large btn-block" do %>
+          <i class="icon-play-circle"></i> Log in
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>

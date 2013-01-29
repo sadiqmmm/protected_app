@@ -1,0 +1,14 @@
+@import "bootstrap";
+
+body{
+  padding-top: 50px;
+}
+
+.home{
+  text-align: center;
+  a{
+    margin-top: 10px;
+  }
+}
+
+@import "bootstrap-responsive";
