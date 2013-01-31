@@ -1,4 +1,7 @@
 ProtectedApp::Application.routes.draw do
+  resources :items
+
+
   resources :folders
 
 

@@ -1,5 +1,40 @@
 <% if user_signed_in? %>
-
+  <div class="row-fluid">
+    <div class="span6 last_items">
+      <% if @last_folders.count == 0 %>
+        <%= link_to "Add a new item", "#", class: "btn btn-block btn-warning disabled" %>
+      <% else %>
+        <%= link_to new_item_path, class: "btn btn-block btn-warning" do %>
+          <i class="icon-white icon-plus-sign"></i> Add a new item
+        <% end %>
+      <% end %>
+      <div class="well">
+        <ul class="nav nav-list">
+          <li class="nav-header">Your Last Items</li>
+          <% @last_items.each do |item| %>
+            <li><%= link_to item.title, item %></li>
+          <% end %>
+          <li class="divider"></li>
+          <li><%= link_to "See all", items_path %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="span6 last_folders">
+      <%= link_to new_folder_path, class: "btn btn-success btn-block" do %>
+        <i class="icon-white icon-plus-sign"></i> New folder
+      <% end %>
+      <div class="well">
+        <ul class="nav nav-list">
+          <li class="nav-header">Your Last Folders</li>
+          <% @last_folders.each do |folder| %>
+            <li><%= link_to folder.name, folder %></li>
+          <% end %>
+          <li class="divider"></li>
+          <li><%= link_to "See all", folders_path %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 <% else %>
   <div class="well home">
     <h1>Protected App</h1>

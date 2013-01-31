@@ -15,4 +15,10 @@ body{
   float: right;
 }
 
+.last_folders, .last_items{
+  .btn{
+    margin-bottom: 15px;
+  }
+}
+
 @import "bootstrap-responsive";

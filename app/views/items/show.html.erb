@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @item.title %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%= @item.login %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @item.password %>
+</p>
+
+<p>
+  <b>Login url:</b>
+  <%= @item.login_url %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @item.notes %>
+</p>
+
+<p>
+  <b>Folder:</b>
+  <%= @item.folder_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
