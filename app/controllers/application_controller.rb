@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   before_filter :get_items
 
   def get_items
-    @search_items = current_user.items.order("title").pluck(:title)
+    if user_signed_in?
+      @search_items = current_user.items.order("title").pluck(:title)
+    end
   end
 end
