@@ -1,35 +1,47 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @item.title %>
-</p>
+<div class="row-fluid">
+  <div class="span3">
+    <%= link_to edit_item_path(@item), class: "btn btn-warning btn-block" do %>
+      <i class="icon-white icon-edit"></i> Edit item
+    <% end %>
+  </div>
+  <div class="span9">
+    <ul class="breadcrumb">
+      <li><%= link_to "Home", root_path %> <span class="divider">/</span></li>
+      <% @item.folder.ancestors.each do |folder| %>
+        <li><%= link_to folder.name, folder %> <span class="divider">/</span></li>
+      <% end %>
+      <li class="active"><%= link_to @item.folder.name, @item.folder %></li>
+    </ul>
+  </div>
+</div>
 
-<p>
-  <b>Login:</b>
-  <%= @item.login %>
-</p>
+<div class="row-fluid">
+  <div class="span12">
+    <p>
+      <b>Title:</b>
+      <%= @item.title %>
+    </p>
 
-<p>
-  <b>Password:</b>
-  <%= @item.password %>
-</p>
+    <p>
+      <b>Login:</b>
+      <%= @item.login %>
+    </p>
 
-<p>
-  <b>Login url:</b>
-  <%= @item.login_url %>
-</p>
+    <p>
+      <b>Password:</b>
+      <%= @item.password %>
+    </p>
 
-<p>
-  <b>Notes:</b>
-  <%= @item.notes %>
-</p>
+    <p>
+      <b>Login url:</b>
+      <%= @item.login_url %>
+    </p>
 
-<p>
-  <b>Folder:</b>
-  <%= @item.folder_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+    <p>
+      <b>Notes:</b>
+      <%= @item.notes %>
+    </p>
+  </div>
+</div>

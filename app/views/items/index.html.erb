@@ -1,33 +1,40 @@
 <h1>Listing items</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Login</th>
-    <th>Password</th>
-    <th>Login url</th>
-    <th>Notes</th>
-    <th>Folder</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @items.each do |item| %>
-  <tr>
-    <td><%= item.title %></td>
-    <td><%= item.login %></td>
-    <td><%= item.password %></td>
-    <td><%= item.login_url %></td>
-    <td><%= item.notes %></td>
-    <td><%= item.folder_id %></td>
-    <td><%= link_to 'Show', item %></td>
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Item', new_item_path %>
+<div class="row-fluid">
+    <div class="span12">
+        <table class="table table-striped">
+            <tr>   
+                <th>Folder</th>
+                <th>Title</th>
+                <th>Login</th>
+                <th>URL</th>
+                <th>View</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+            <% @items.each do |item| %>
+                <tr>
+                    <td><%= link_to item.folder.name, item.folder %></td>
+                    <td><%= item.title %></td>
+                    <td><%= item.login %></td>
+                    <td><%= link_to item.login_url, item.login_url, target: "_blank" %></td>
+                    <td>
+                        <%= link_to item, class: "btn"  do%>
+                            <i class="icon-eye-open"></i>
+                        <% end %>
+                    </td>
+                    <td>
+                        <%= link_to edit_item_path(item), class: "btn btn-warning" do %>
+                            <i class="icon-white icon-edit"></i>
+                        <% end %>
+                    </td>
+                    <td>
+                        <%= link_to item, method: :delete, class: "btn btn-danger",
+                            data: { confirm: "Are you sure you want to delete #{item.title}?" } do %>
+                            <i class="icon-white icon-trash"></i>
+                        <% end %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+</div>

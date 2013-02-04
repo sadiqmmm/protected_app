@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @item = Item.find(params[:id])
+    @item = current_user.items.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
