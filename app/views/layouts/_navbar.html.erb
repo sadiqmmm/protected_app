@@ -12,10 +12,14 @@
         <div class="nav-collapse collapse">
           <ul class="nav pull-right">
             <li>
-              <form class="navbar-form">
+              <%= form_tag("#", :method => "get", class: "navbar-form") do %>
+                <%= text_field_tag :search, nil, class: "span4", placeholder: "Search your files", "data" => {"provide" => "typeahead", "source" => @search_items} %>
+                <%= submit_tag "Search", class: "btn" %>
+              <% end %>
+              <!--<form class="navbar-form">
                 <input type="text" class="span4" placeholder="Search your files">
                 <button type="submit" class="btn">Submit</button>
-              </form>
+              </form>-->
             </li>
             <li class="dropdown">
               <%= link_to "#", class: "dropdown-toggle", "data-toggle" => "dropdown" do %>
