@@ -13,7 +13,7 @@
           <ul class="nav pull-right">
             <li>
               <%= form_tag(items_path, :method => "get", class: "navbar-form") do %>
-                <%= text_field_tag :search, params[:search], class: "span4", placeholder: "Search your files", "data" => {"provide" => "typeahead", "source" => @search_items} %>
+                <%= text_field_tag :search, params[:search], class: "span3", placeholder: "Search your files", "data" => {"provide" => "typeahead", "source" => @search_items} %>
                 <%= submit_tag "Search", class: "btn", name: nil %>
               <% end %>
               <!--<form class="navbar-form">
