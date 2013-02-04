@@ -3,4 +3,12 @@ class Item < ActiveRecord::Base
 
   belongs_to :folder
   belongs_to :user
+
+  def self.search(search)
+    if search
+      where(title: search)
+    else
+      order(:title)
+    end
+  end
 end

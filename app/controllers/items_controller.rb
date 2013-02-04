@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = current_user.items.all
+    @items = current_user.items.search(params[:search])
 
     respond_to do |format|
       format.html # index.html.erb
