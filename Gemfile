@@ -5,6 +5,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'bootstrap-sass', '2.1'
 gem 'ancestry'
+gem 'thin'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
